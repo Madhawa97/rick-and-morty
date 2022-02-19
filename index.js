@@ -10,22 +10,37 @@ const get_comment = async() => {
         
         const {id,name,image} = result; //destructure
 
-        console.log("====================================");
-        console.log(name);
-        console.log("====================================");
-
 
         const div = document.createElement('div')
         div.id = id; 
+        div.className = 'w3-card-4';
+        div.style.width = '25%'
 
-        const h1 = document.createElement('h1')
-        h1.innerHTML = name;
+        // <div class="w3-container">
+        // <h2>Photo Card</h2>
+
+        // <div class="w3-card-4" style="width:50%">
+        //     <img src="img_snowtops.jpg" alt="Alps" style="width:100%">
+        //     <div class="w3-container w3-center">
+        //     <p>The Italian / Austrian Alps</p>
+        //     </div>
+        // </div>
+        // </div>
 
         const img = document.createElement('img')
         img.src = result.image;
+        img.style.width = '100%';
 
-        div.appendChild(h1);
+        const div2 = document.createElement('div');
+        div2.className = 'w3-container w3-center';
+
+        const p = document.createElement("h1");
+        p.innerHTML = name;
+
+        // append childs
+        div.appendChild(div2);
         div.appendChild(img);
+        div2.appendChild(p);
 
         document.getElementById('root').appendChild(div);
 
